@@ -63,6 +63,11 @@
       text-align: right;
       font-weight: 700;
     }
+
+    .button-container {
+      display: flex;
+    }
+    
     button {
       width: 140px;
       font-size: 1em;
