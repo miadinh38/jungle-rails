@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
   end
 
+  namespace :admin do
+    root to: 'categories#index', as: 'admin_root'
+    resources :categories, only: [:index, :new, :create]
+  end 
+
   get '/about', to: 'about#index'
 
 
