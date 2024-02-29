@@ -1,3 +1,8 @@
+<% if current_user %>
+  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+<% else %>
+  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+<% end %>
 
 <header class="<%= current_page?(root_path) ? "hero" : "hero small" %>">
   <section class="title">
@@ -6,7 +11,17 @@
     <h2>Where you can find any plants!</h2>
   </section>
 </header>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-nav">
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-nav d-flex flex-column">
+  <div class="container justify-content-end">
+    <% if current_user %>
+      <span class="navbar-login">Signed in as <%= current_user.name %></span>
+      <%= link_to "Logout", '/logout', class: "btn btn-light" %>    
+    <% else %>
+      <%= link_to 'Login', '/login', class: "btn btn-light btn-margin" %> <%= link_to 'Signup', '/signup', class: "btn btn-light" %>
+    <% end %>
+  </div>
+
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Jungle</a>
     <button
@@ -70,6 +85,7 @@
           <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
           My Cart (<%= cart.size %>) <% end %>
         </li>
+
       </ul>
     </div>
   </div>
