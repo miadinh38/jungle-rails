@@ -41,9 +41,15 @@ RSpec.describe User, type: :model do
     end
 
     it 'validates presence of name' do
-      user = User.new(name: nil, email: nil, password: "password", password_confirmation: "password")
+      user = User.new(name: nil, email: "test@example.com", password: "password", password_confirmation: "password")
       user.save
       expect(user.errors.full_messages_for(:name)).to include("Name can't be blank")
+    end
+
+    it 'validates length of passwword' do
+      user = User.new(name: "Example", email: "test@example.com", password: "123", password_confirmation: "123")
+      user.save
+      expect(user.errors.full_messages_for(:password)).to include("Password is too short (minimum is 5 characters)")
     end
 
 
