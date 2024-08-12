@@ -1,6 +1,8 @@
 # Jungle
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 6.1. It allows users to purchase different types of plants via browsing through the homepage, sorting plants by category, reading descriptions, etc. Navigation is smooth and simple. Sensitive information is stored safely via bcrypt gem. Users can place orders either as a guest or a registered member.
+
+Access to certain features is only allowed for admin users via authentication, e.g., managing categories and products.
 
 ## Setup
 
@@ -12,6 +14,23 @@ A mini e-commerce application built with Rails 6.1 for purposes of teaching Rail
 6. Sign up for a Stripe account
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
+
+## Final UI
+
+### Homepage
+![Homepage](/doc/homepage.png)
+
+### Product Details
+![Product details](/doc/product-details.png)
+
+### Shopping Cart and Payment
+![My shopping cart](/doc/my-cart.png)
+
+### Admin Feature
+![Admin feature](/doc/admin.png)
+
+
+
 
 ## Database
 
